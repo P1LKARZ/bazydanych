@@ -1,0 +1,22 @@
+zad 1
+a)UPDATE pracownicy SET pracownicy.Zarobki = [zarobki]*1.05
+WHERE (((pracownicy.Wydział)="w3"));
+b)UPDATE pracownicy SET pracownicy.Zarobki = [zarobki]*1.08
+WHERE (((pracownicy.Wydział)="w5"));
+zad2
+SELECT pracownicy.* INTO emeryci
+FROM pracownicy
+WHERE (((pracownicy.[Data zatrudnienia])<=#12/31/1979#));
+zad3
+DELETE pracownicy.*, pracownicy.[Data zatrudnienia]
+FROM pracownicy
+WHERE (((pracownicy.[Data zatrudnienia])<=#12/31/1979#));
+zad4
+INSERT INTO emeryci ( Nr, Nazwisko, Imię, Wydział, Płeć, Zarobki, [Staż pracy], [Data zatrudnienia] )
+SELECT pracownicy.Nr, pracownicy.Nazwisko, pracownicy.Imię, pracownicy.Wydział, pracownicy.Płeć, pracownicy.Zarobki, pracownicy.[Staż pracy], pracownicy.[Data zatrudnienia]
+FROM pracownicy
+WHERE (((pracownicy.[Data zatrudnienia]) Between #1/1/1981# And #12/31/1981#));
+zad5
+SELECT pracownicy.* INTO wydział
+FROM pracownicy
+WHERE (((pracownicy.Wydział)=[podaj_nazwe_wydziału]));
